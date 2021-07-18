@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "7777:7777"
+
+  postgres:
+    image: library/postgres
+    environment:
+      POSTGRES_USER: sever
+      POSTGRES_PASSWORD: sever
+      POSTGRES_DB: sever
+    restart: always
+    ports:
+      - "5432:5432"

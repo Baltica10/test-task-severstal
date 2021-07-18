@@ -1,0 +1,17 @@
+server:
+  port: 7777
+
+spring:
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://postgres:5432/sever}
+    username: ${POSTGRES_USERNAME:sever}
+    password: ${POSTGRES_PASSWORD:sever}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+    open-in-view: false
+
+  liquibase:
+    change-log: classpath:/db/migration/changelog-master.json
